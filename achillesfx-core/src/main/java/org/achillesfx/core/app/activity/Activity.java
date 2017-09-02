@@ -27,15 +27,16 @@ public abstract class Activity {
     /**
      * The Context.
      */
-    private ActivityContext context;
+    protected ActivityContext context;
     /**
      * The Scene.
      */
-    private AchillesFxScene scene;
+    protected AchillesFxScene scene;
     /**
      * The Node.
      */
-    private Node node;
+    protected Node node;
+
 
 
     /**
@@ -150,6 +151,11 @@ public abstract class Activity {
         return this.scene.lookup("#" + name);
     }
 
+    /**
+     * Start intent.
+     *
+     * @param intent the intent
+     */
     public void startIntent(Intent intent) {
         intent.start();
     }

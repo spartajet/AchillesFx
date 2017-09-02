@@ -1,11 +1,13 @@
 package org.achillesfx.core.example;
 
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import org.achillesfx.core.app.activity.BaseActivity;
 import org.achillesfx.core.app.context.ActivityContext;
 import org.achillesfx.core.app.intent.ActivityIntent;
+import org.achillesfx.core.app.intent.UriIntent;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -20,6 +22,9 @@ public class SimpleBaseActivity extends BaseActivity {
     private TextField text1;
     @FXML
     private Button intentTestButton;
+    @FXML
+    private Button urlTextButton;
+
 
     public SimpleBaseActivity(ActivityContext context) {
         super(context);
@@ -38,6 +43,16 @@ public class SimpleBaseActivity extends BaseActivity {
         this.intentTestButton.setOnAction(event -> {
             SecondActivity secondActivity = new SecondActivity(getContext());
             ActivityIntent intent = new ActivityIntent(getContext(), this, secondActivity);
+            intent.start();
+        });
+        this.urlTextButton.setOnAction((ActionEvent event) -> {
+//            try {
+//                UriIntent intent = new UriIntent(getContext(), "http://www.google.com");
+//                intent.start();
+//            } catch (Exception e) {
+//                logger.error("intent error", e);
+//            }
+            UriIntent intent = new UriIntent(UriIntent.UriType.FILE, getContext(), "/file/2017-09-03-00-32-05.pdf");
             intent.start();
         });
     }

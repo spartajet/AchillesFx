@@ -1,6 +1,6 @@
 package org.achillesfx.core.example;
 
-import org.achillesfx.core.app.AchillesFxApp;
+import org.achillesfx.core.app.AchillesFxApplication;
 
 /**
  * @description
@@ -9,6 +9,6 @@ import org.achillesfx.core.app.AchillesFxApp;
  */
 public class SimpleExampleApp {
     public static void main(String[] args) {
-        AchillesFxApp.launchApp(SimpleBaseActivity.class);
+        AchillesFxApplication.launchApp(SimpleBaseActivity.class);
     }
 }

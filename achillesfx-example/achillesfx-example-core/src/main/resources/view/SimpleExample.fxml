@@ -9,5 +9,6 @@
       <Button fx:id="button1" layoutX="300.0" layoutY="93.0" mnemonicParsing="false" text="Button" />
       <TextField fx:id="text1" layoutX="57.0" layoutY="93.0" />
       <Button fx:id="intentTestButton" layoutX="82.0" layoutY="200.0" mnemonicParsing="false" text="IntentTest" />
+      <Button fx:id="urlTextButton" layoutX="251.0" layoutY="200.0" mnemonicParsing="false" text="URL Test" />
    </children>
 </AnchorPane>

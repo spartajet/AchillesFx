@@ -16,24 +16,24 @@ import java.util.Map;
  * @create 2017-08-19 下午12:35
  * @email spartajet.guo@gmail.com
  */
-public class AchillesFxApp extends Application {
-    private static Logger logger = LoggerFactory.getLogger(AchillesFxApp.class);
+public class AchillesFxApplication extends Application {
+    private static Logger logger = LoggerFactory.getLogger(AchillesFxApplication.class);
     private Activity startActivity;
     private static Class<? extends Activity> startClass;
     private Map<String, Object> params;
     private ActivityContext startActivityContext;
     private AchillesFxStage achillesFxStage;
 
-    private static AchillesFxApp achillesFxApp;
+    private static AchillesFxApplication achillesFxApplication;
 
-//    private AchillesFxApp() {
+//    private AchillesFxApplication() {
 //    }
 
-    public static AchillesFxApp getApplication() {
-        if (achillesFxApp == null) {
-            achillesFxApp = new AchillesFxApp();
+    public static AchillesFxApplication getApplication() {
+        if (achillesFxApplication == null) {
+            achillesFxApplication = new AchillesFxApplication();
         }
-        return achillesFxApp;
+        return achillesFxApplication;
     }
 
     @Override
@@ -42,7 +42,7 @@ public class AchillesFxApp extends Application {
 
 
         this.achillesFxStage = new AchillesFxStage(primaryStage);
-        this.startActivityContext = new ActivityContext(this.achillesFxStage);
+        this.startActivityContext = new ActivityContext(this.achillesFxStage,this);
 //        this.startActivity.setContext(this.startActivityContext);
         this.startActivity = (Activity) constructor.newInstance(startActivityContext);
         this.achillesFxStage.setActivity(this.startActivity);
@@ -51,7 +51,7 @@ public class AchillesFxApp extends Application {
 
     public static void launchApp(Class<? extends Activity> appClass, Map<String, Object> params) {
         startClass = appClass;
-        Application.launch(AchillesFxApp.class);
+        Application.launch(AchillesFxApplication.class);
     }
 
     public static void launchApp(Class<? extends Activity> appClass) {
